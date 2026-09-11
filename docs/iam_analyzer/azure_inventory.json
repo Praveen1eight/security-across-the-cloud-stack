@@ -1,0 +1,273 @@
+{
+    "subscription_id": "158f991b-d057-49dc-9bf0-2249fb1e289c",
+    "tenant_id": "5f859e40-73a7-46b8-8484-6bf437063399",
+    "resource_group": "rg-security-cloud-stack",
+    "resources": [
+        {
+            "name": "vnet-cloud-stack",
+            "type": "Microsoft.Network/virtualNetworks",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "nsg-web-security",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01_key",
+            "type": "Microsoft.Compute/sshPublicKeys",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Compute/sshPublicKeys/vm-web-01_key",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01-ip",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01267",
+            "type": "Microsoft.Network/networkInterfaces",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Compute/virtualMachines/vm-web-01",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01_OsDisk_1_d3f7bccba21e4605a579580d6c2220e9",
+            "type": "Microsoft.Compute/disks",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Compute/disks/vm-web-01_OsDisk_1_d3f7bccba21e4605a579580d6c2220e9",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "ASP-rgsecuritycloudstack-ab57",
+            "type": "Microsoft.Web/serverFarms",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Web/serverFarms/ASP-rgsecuritycloudstack-ab57",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "security-cloud-stack-app-01",
+            "type": "Microsoft.Web/sites",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Web/sites/security-cloud-stack-app-01",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "kvseccloud01",
+            "type": "Microsoft.KeyVault/vaults",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "NetworkWatcher_malaysiawest",
+            "type": "Microsoft.Network/networkWatchers",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_malaysiawest",
+            "resource_group": null,
+            "location": "malaysiawest"
+        }
+    ],
+    "role_assignments": [
+        {
+            "principal_id": "fc6c7c41-492f-4e70-a594-b797432fa644",
+            "principal_type": "User",
+            "role_definition_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+            "scope": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c",
+            "role_name": "Owner",
+            "principal_name": "Current Azure User"
+        },
+        {
+            "principal_id": "bb01d387-f7ce-4072-944e-2426912fb5d6",
+            "principal_type": "ServicePrincipal",
+            "role_definition_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+            "scope": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "role_name": "Key Vault Secrets User",
+            "principal_name": "security-cloud-stack-app-01"
+        },
+        {
+            "principal_id": "fc6c7c41-492f-4e70-a594-b797432fa644",
+            "principal_type": "User",
+            "role_definition_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+            "scope": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "role_name": "Key Vault Secrets Officer",
+            "principal_name": "Current Azure User"
+        }
+    ],
+    "managed_identities": [
+        {
+            "resource": "security-cloud-stack-app-01",
+            "type": "SystemAssigned",
+            "principal_id": "bb01d387-f7ce-4072-944e-2426912fb5d6",
+            "tenant_id": "5f859e40-73a7-46b8-8484-6bf437063399"
+        }
+    ],
+    "key_vaults": [
+        {
+            "name": "kvseccloud01",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "type": "Microsoft.KeyVault/vaults"
+        }
+    ],
+    "secrets": [
+        {
+            "name": "app-secret",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01/secrets/app-secret"
+        }
+    ],
+    "network": {
+        "vnets": [
+            {
+                "name": "vnet-cloud-stack",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "address_space": [
+                    "10.0.0.0/16"
+                ],
+                "subnets": [
+                    {
+                        "name": "management-subnet",
+                        "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/management-subnet",
+                        "address_prefixes": [
+                            "10.0.2.0/24"
+                        ],
+                        "nsg_id": null,
+                        "private_endpoint_network_policies": "Disabled"
+                    },
+                    {
+                        "name": "web-subnet",
+                        "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet",
+                        "address_prefixes": [
+                            "10.0.1.0/24"
+                        ],
+                        "nsg_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+                        "private_endpoint_network_policies": "Disabled"
+                    }
+                ]
+            }
+        ],
+        "nsgs": [
+            {
+                "name": "nsg-web-security",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "subnet_ids": [
+                    "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
+                ],
+                "rules": [
+                    {
+                        "name": "Allow-HTTP-Web",
+                        "priority": 100,
+                        "direction": "Inbound",
+                        "access": "Allow",
+                        "protocol": "TCP",
+                        "source": "*",
+                        "source_port": "*",
+                        "destination": "*",
+                        "destination_port": "80"
+                    },
+                    {
+                        "name": "Allow-SSH-MyIp",
+                        "priority": 110,
+                        "direction": "Inbound",
+                        "access": "Allow",
+                        "protocol": "TCP",
+                        "source": "122.183.37.185",
+                        "source_port": "*",
+                        "destination": "*",
+                        "destination_port": "22"
+                    }
+                ]
+            }
+        ],
+        "public_ips": [
+            {
+                "name": "vm-web-01-ip",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip",
+                "resource_group": null,
+                "ip_address": "172.197.220.81",
+                "allocation_method": "Static",
+                "sku": "Standard",
+                "ip_configuration_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267/ipConfigurations/ipconfig1"
+            }
+        ],
+        "network_interfaces": [
+            {
+                "name": "vm-web-01267",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "network_security_group_id": null,
+                "ip_configurations": [
+                    {
+                        "name": "ipconfig1",
+                        "private_ip": "10.0.1.4",
+                        "private_ip_allocation": "Dynamic",
+                        "subnet_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet",
+                        "public_ip_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip"
+                    }
+                ],
+                "virtual_machine_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Compute/virtualMachines/vm-web-01"
+            }
+        ],
+        "virtual_machines": [
+            {
+                "name": "vm-web-01",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Compute/virtualMachines/vm-web-01",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "vm_size": "Standard_B2ats_v2",
+                "os_type": "Linux",
+                "nic_ids": [
+                    "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267"
+                ],
+                "security_type": "TrustedLaunch",
+                "secure_boot": true,
+                "v_tpm": true,
+                "password_authentication_disabled": true
+            }
+        ],
+        "relationships": [
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267",
+                "relationship": "connected_to_subnet",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet",
+                "relationship": "inside_vnet",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip",
+                "relationship": "attached_to_nic",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Compute/virtualMachines/vm-web-01",
+                "relationship": "uses_nic",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+                "relationship": "protects_subnet",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
+            }
+        ]
+    }
+}

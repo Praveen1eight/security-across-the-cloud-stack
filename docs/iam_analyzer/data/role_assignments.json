@@ -1,0 +1,83 @@
+{
+  "users": [
+    {
+      "id": "u001",
+      "name": "saas-user"
+    },
+    {
+      "id": "u002",
+      "name": "saas-admin"
+    }
+  ],
+  "groups": [
+    {
+      "id": "g001",
+      "name": "Cloud-Security-Users",
+      "members": ["u001"]
+    }
+  ],
+  "roles": [
+    {
+      "id": "r001",
+      "name": "Contributor"
+    },
+    {
+      "id": "r002",
+      "name": "Key Vault Secrets User"
+    }
+  ],
+  "resources": [
+    {
+      "id": "res001",
+      "name": "security-cloud-stack-app-01",
+      "type": "App Service",
+      "identity": "mi001"
+    },
+    {
+      "id": "res002",
+      "name": "kvseccloud01",
+      "type": "Key Vault"
+    },
+    {
+      "id": "res003",
+      "name": "app-secret",
+      "type": "Key Vault Secret"
+    }
+  ],
+  "managed_identities": [
+    {
+      "id": "mi001",
+      "name": "security-cloud-stack-app-01-identity"
+    }
+  ],
+  "role_assignments": [
+    {
+      "principal_id": "g001",
+      "role": "Contributor",
+      "resource": "res001",
+      "permissions": [
+        "Microsoft.Web/sites/write"
+      ]
+    },
+    {
+      "principal_id": "mi001",
+      "role": "Key Vault Secrets User",
+      "resource": "res002",
+      "permissions": [
+        "Microsoft.KeyVault/vaults/secrets/read"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "res001",
+      "type": "USES_IDENTITY",
+      "to": "mi001"
+    },
+    {
+      "from": "res002",
+      "type": "CONTAINS",
+      "to": "res003"
+    }
+  ]
+}

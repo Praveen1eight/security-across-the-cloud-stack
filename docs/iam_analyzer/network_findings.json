@@ -1,0 +1,18 @@
+[
+    {
+        "type": "PublicNetworkExposure",
+        "severity": "HIGH",
+        "nsg": "nsg-web-security",
+        "rule": "Allow-HTTP-Web",
+        "source": "*",
+        "protocol": "TCP",
+        "port": 80,
+        "service": "TCP/80",
+        "title": "Publicly exposed TCP/80 service",
+        "exposed_subnets": [
+            "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
+        ],
+        "exposed_nics": [],
+        "exposed_vms": []
+    }
+]

@@ -1,0 +1,60 @@
+{
+    "model": "IaaS",
+    "scope": "IaaS + Identity",
+    "risk_score": 20,
+    "risk_rating": "LOW",
+    "findings": {
+        "total": 1,
+        "counts": {
+            "CRITICAL": 0,
+            "HIGH": 1,
+            "MEDIUM": 0,
+            "LOW": 0,
+            "INFO": 0
+        },
+        "network_findings": [
+            {
+                "type": "PublicNetworkExposure",
+                "severity": "HIGH",
+                "nsg": "nsg-web-security",
+                "rule": "Allow-HTTP-Web",
+                "source": "*",
+                "protocol": "TCP",
+                "port": 80,
+                "service": "TCP/80",
+                "title": "Publicly exposed TCP/80 service",
+                "exposed_subnets": [
+                    "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
+                ],
+                "exposed_nics": [],
+                "exposed_vms": []
+            }
+        ]
+    },
+    "inventory": {
+        "resources": 11,
+        "managed_identities": 1,
+        "rbac_assignments": 3,
+        "network_relationships": 5
+    },
+    "graph": {
+        "nodes": 19,
+        "edges": 19
+    },
+    "sensitive_targets": [
+        {
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourcegroups/rg-security-cloud-stack/providers/microsoft.keyvault/vaults/kvseccloud01",
+            "name": "kvseccloud01",
+            "type": "Microsoft.KeyVault/vaults"
+        },
+        {
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourcegroups/rg-security-cloud-stack/providers/microsoft.keyvault/vaults/kvseccloud01/secrets/app-secret",
+            "name": "app-secret",
+            "type": "Secret"
+        }
+    ],
+    "attack_paths": {
+        "count": 0,
+        "paths": []
+    }
+}

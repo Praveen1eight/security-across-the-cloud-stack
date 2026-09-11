@@ -1,0 +1,1297 @@
+{
+    "subscription_id": "158f991b-d057-49dc-9bf0-2249fb1e289c",
+    "tenant_id": "5f859e40-73a7-46b8-8484-6bf437063399",
+    "resource_group": "rg-security-cloud-stack",
+    "resources": [
+        {
+            "name": "vnet-cloud-stack",
+            "type": "Microsoft.Network/virtualNetworks",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "nsg-web-security",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01_key",
+            "type": "Microsoft.Compute/sshPublicKeys",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Compute/sshPublicKeys/vm-web-01_key",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01-ip",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01267",
+            "type": "Microsoft.Network/networkInterfaces",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Compute/virtualMachines/vm-web-01",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "vm-web-01_OsDisk_1_d3f7bccba21e4605a579580d6c2220e9",
+            "type": "Microsoft.Compute/disks",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Compute/disks/vm-web-01_OsDisk_1_d3f7bccba21e4605a579580d6c2220e9",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "ASP-rgsecuritycloudstack-ab57",
+            "type": "Microsoft.Web/serverFarms",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Web/serverFarms/ASP-rgsecuritycloudstack-ab57",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "security-cloud-stack-app-01",
+            "type": "Microsoft.Web/sites",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Web/sites/security-cloud-stack-app-01",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "kvseccloud01",
+            "type": "Microsoft.KeyVault/vaults",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "resource_group": null,
+            "location": "malaysiawest"
+        },
+        {
+            "name": "NetworkWatcher_malaysiawest",
+            "type": "Microsoft.Network/networkWatchers",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_malaysiawest",
+            "resource_group": null,
+            "location": "malaysiawest"
+        }
+    ],
+    "role_assignments": [
+        {
+            "principal_id": "fc6c7c41-492f-4e70-a594-b797432fa644",
+            "principal_type": "User",
+            "role_definition_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+            "scope": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c",
+            "role_name": "Owner",
+            "principal_name": "Current Azure User"
+        },
+        {
+            "principal_id": "bb01d387-f7ce-4072-944e-2426912fb5d6",
+            "principal_type": "ServicePrincipal",
+            "role_definition_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+            "scope": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "role_name": "Key Vault Secrets User",
+            "principal_name": "security-cloud-stack-app-01"
+        },
+        {
+            "principal_id": "fc6c7c41-492f-4e70-a594-b797432fa644",
+            "principal_type": "User",
+            "role_definition_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+            "scope": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "role_name": "Key Vault Secrets Officer",
+            "principal_name": "Current Azure User"
+        }
+    ],
+    "managed_identities": [
+        {
+            "resource": "security-cloud-stack-app-01",
+            "type": "SystemAssigned",
+            "principal_id": "bb01d387-f7ce-4072-944e-2426912fb5d6",
+            "tenant_id": "5f859e40-73a7-46b8-8484-6bf437063399"
+        }
+    ],
+    "paas": {
+        "app_service": {
+            "name": "security-cloud-stack-app-01",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Web/sites/security-cloud-stack-app-01",
+            "kind": "app,linux",
+            "state": "Running",
+            "default_host_name": "security-cloud-stack-app-01-gybnccbtbhabambd.malaysiawest-01.azurewebsites.net",
+            "https_only": true,
+            "public_network_access": "Enabled",
+            "client_cert_enabled": false,
+            "client_cert_mode": "Required",
+            "site_config": {
+                "min_tls_version": "1.2",
+                "ftps_state": "FtpsOnly",
+                "http20_enabled": false,
+                "always_on": false,
+                "remote_debugging_enabled": false,
+                "ip_security_restrictions": [
+                    {
+                        "ipAddress": "157.51.109.60/32",
+                        "action": "Allow",
+                        "tag": "Default",
+                        "priority": 100,
+                        "name": "Allow-My-IP"
+                    },
+                    {
+                        "ipAddress": "Any",
+                        "action": "Deny",
+                        "priority": 2147483647,
+                        "name": "Deny all",
+                        "description": "Deny all access"
+                    }
+                ],
+                "scm_ip_security_restrictions": [
+                    {
+                        "ipAddress": "157.51.109.60/32",
+                        "action": "Allow",
+                        "tag": "Default",
+                        "priority": 100,
+                        "name": "Allow-My-IP-SCM"
+                    },
+                    {
+                        "ipAddress": "Any",
+                        "action": "Deny",
+                        "priority": 2147483647,
+                        "name": "Deny all",
+                        "description": "Deny all access"
+                    }
+                ]
+            }
+        },
+        "authentication": {
+            "platform_enabled": true,
+            "unauthenticated_action": "RedirectToLoginPage",
+            "identity_providers": {}
+        },
+        "app_settings": [
+            {
+                "name": "APP_SECRET",
+                "key_vault_reference": true
+            }
+        ],
+        "connection_strings": []
+    },
+    "saas": {
+        "users": [
+            {
+                "id": "fc6c7c41-492f-4e70-a594-b797432fa644",
+                "display_name": "Praveen Vasamsetti",
+                "user_principal_name": "praveenraja1815_gmail.com#EXT#@praveenraja1815gmail.onmicrosoft.com",
+                "user_type": "Member",
+                "account_enabled": true,
+                "created_date_time": "2026-08-15T03:46:23Z",
+                "mail": null
+            },
+            {
+                "id": "a48531e6-9e29-4759-a341-6384aa5c26d4",
+                "display_name": "SaaS Admin",
+                "user_principal_name": "saas-admin@praveenraja1815gmail.onmicrosoft.com",
+                "user_type": "Member",
+                "account_enabled": true,
+                "created_date_time": "2026-08-21T06:12:11Z",
+                "mail": null
+            },
+            {
+                "id": "3a314b13-5a8d-41bb-9e04-03ddf74ffd1d",
+                "display_name": "SaaS Test User",
+                "user_principal_name": "saas-user@praveenraja1815gmail.onmicrosoft.com",
+                "user_type": "Member",
+                "account_enabled": true,
+                "created_date_time": "2026-08-21T05:56:50Z",
+                "mail": null
+            }
+        ],
+        "guests": [],
+        "disabled_users": [],
+        "service_principals": [
+            {
+                "id": "008c2af6-9849-4a77-936b-e0fba9f15325",
+                "display_name": "GatewayRP",
+                "app_id": "486c78bf-a0f7-45f1-92fd-37215929e116",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "017a124a-0cd7-4bb5-af9a-60e23bc9d3d4",
+                "display_name": "Microsoft Threat Protection",
+                "app_id": "8ee8fdad-f234-4243-8f3b-15c294843740",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "02c1064f-3c07-4191-8790-3c0c326a74b9",
+                "display_name": "Device Registration Service",
+                "app_id": "01cb2876-7ebd-4aa4-9cc9-d28bd4d359a9",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "0740648f-976d-4c2b-9500-550d7a59ce8d",
+                "display_name": "ptm-prod",
+                "app_id": "9bc4cc98-c5f0-4916-b2ef-b55848ef0f48",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "0c1ffd45-7050-404a-b462-f6afb1830eb4",
+                "display_name": "Microsoft password reset service",
+                "app_id": "93625bc8-bfe2-437a-97e0-3d0060024faa",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "0db2b8af-3662-4faf-b97e-4491affa3376",
+                "display_name": "Azure ESTS Service",
+                "app_id": "00000001-0000-0000-c000-000000000000",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "1450d5eb-0136-4adf-a2a7-de0c6b4e7b59",
+                "display_name": "Storage Data Management RP Prod FPA",
+                "app_id": "3a3b6b87-84e2-4ad2-aa37-d76c339371a4",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "14c3475e-f072-4cce-b493-fa691ed4302e",
+                "display_name": "Azure Storage Discovery Resource Provider",
+                "app_id": "b15f3d14-f6d1-4c0d-93da-d4136c97f006",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "1a0b5a22-8162-4163-b579-d24979419e01",
+                "display_name": "Azure Support - Network Watcher",
+                "app_id": "341b7f3d-69b3-47f9-9ce7-5b7f4945fdbd",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "1bef599e-7de1-4294-af06-91c10bde6245",
+                "display_name": "MCAPI Authorization Prod",
+                "app_id": "d73f4b35-55c9-48c7-8b10-651f6f2acb2e",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "23dc93d2-60b3-44f7-a5da-4912eb07e5d8",
+                "display_name": "Azure Storage",
+                "app_id": "e406a681-f3d4-42a8-90b6-c2b029497af1",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "2762ef7e-af88-4a16-9d1b-4db4d30b485f",
+                "display_name": "Azure Key Vault Managed HSM",
+                "app_id": "589d5083-6f11-4d30-a62a-a4b316a14abf",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "29b13778-e6d8-49b8-ad4a-94de3d067ec0",
+                "display_name": "AIRS",
+                "app_id": "c7d28c4f-0d2c-49d6-a88d-a275cc5473c7",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "2ae65ab4-a60e-4a84-ad79-9469122a12ee",
+                "display_name": "networkcopilotRP",
+                "app_id": "d66e9e8e-53a4-420c-866d-5bb39aaea675",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "2c54e029-6d52-4c70-a3da-e3f91b1ba8b5",
+                "display_name": "MicrosoftGuestConfiguration",
+                "app_id": "e935b4a5-8968-416d-8414-caed51c782a9",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "2df3119a-236e-4938-adb6-e2653ef5d088",
+                "display_name": "Microsoft Modern Contact Master",
+                "app_id": "224a7b82-46c9-4d6b-8db0-7360fb444681",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "2fc61d8b-9083-4a61-975b-b47f402f22ea",
+                "display_name": "Managed Disks Resource Provider",
+                "app_id": "60e6cd67-9c8c-4951-9b3c-23c25a2169af",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3242720f-f8e5-4a86-949b-27268bce3f4f",
+                "display_name": "Network Watcher",
+                "app_id": "7c33bfcb-8d33-48d6-8e60-dc6404003489",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3309418c-dbe4-44bf-bdb9-e7d5a1690c30",
+                "display_name": "Azure Static Web Apps",
+                "app_id": "a7d8f84e-510b-46d6-8f59-77e581db63bc",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3347efe5-40df-44e7-b5f6-f098e69218ae",
+                "display_name": "Azure Cloud Shell",
+                "app_id": "2233b157-f44d-4812-b777-036cdaf9a96e",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "34c43fd9-2c77-45d8-9f96-2cdff75ab108",
+                "display_name": "Defender for Storage Advanced Threat Protection Resource Provider",
+                "app_id": "080765e3-9336-4461-b934-310acccb907d",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "350c85aa-b658-4c5a-98d3-078a5883769d",
+                "display_name": "PROD Microsoft Defender For Cloud XDR",
+                "app_id": "3f6aecb4-6dbf-4e45-9141-440abdced562",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3597366a-e157-4074-9488-b94805d5be38",
+                "display_name": "Compute Recommendation Service",
+                "app_id": "b9a92e36-2cf8-4f4e-bcb3-9d99e00e14ab",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "35e3bdfc-d2f8-469f-8fbb-eb09d12f0205",
+                "display_name": "Signup",
+                "app_id": "b4bddae8-ab25-483e-8670-df09b9f1d0ea",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "36becac8-daaa-428b-b4c4-76bbfe1963e2",
+                "display_name": "Microsoft Defender for Cloud",
+                "app_id": "bceea168-88ac-4736-95dc-4ce488ffe324",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "383d32ed-d2d7-4c98-b0ea-961390481255",
+                "display_name": "Azure MFA StrongAuthenticationService",
+                "app_id": "b5a60e17-278b-4c92-a4e2-b9262e66bb28",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3892cb7d-ec18-4e48-90b2-bb1bb2705f64",
+                "display_name": "Microsoft Azure Policy Insights",
+                "app_id": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "38f12839-705c-490b-8e41-426a7305b587",
+                "display_name": "Microsoft Defender for APIs Resource Provider",
+                "app_id": "56823b05-67d8-413a-b6ab-ad19d7710cf2",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3e9f603a-e3d7-4b76-b986-ca401597fd0c",
+                "display_name": "Workload Identity Control Plane",
+                "app_id": "2d4e7d66-4baf-4714-bf99-7e03dc377fdb",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3f154d6a-7ac2-44bf-8a99-14e1fd8c17de",
+                "display_name": "Microsoft Defender for Cloud Defender Kubernetes Agent",
+                "app_id": "6e2cffc9-52e7-4bfa-8155-be5c1dacd81c",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "3f381099-c40a-454d-852c-dbfde9dee2f9",
+                "display_name": "Microsoft Azure AD Identity Protection",
+                "app_id": "a3dfc3c6-2c7d-4f42-aeec-b2877f9bce97",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "40b9bfee-cb59-4395-ac95-419144aab21c",
+                "display_name": "Microsoft.SMIT",
+                "app_id": "8fca0a66-c008-4564-a876-ab3ae0fd5cff",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "4140aed5-af02-4b34-8bd1-0651faf1747f",
+                "display_name": "Azure Advisor",
+                "app_id": "c39c9bac-9d1f-4dfb-aa29-27f6365e5cb7",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "4938e8cc-8ebd-48c9-af41-6cd91f48010f",
+                "display_name": "Microsoft Graph Change Tracking",
+                "app_id": "0bf30f3b-4a52-48df-9a82-234910c4a086",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "4a417ae0-9786-43ee-ba61-2c43f57a97e9",
+                "display_name": "Azure Linux VM Sign-In",
+                "app_id": "ce6ff14a-7fdc-4685-bbe0-f6afdfcfa8e0",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "4b5c134d-9970-4cdc-b2df-10ebfcaa7c52",
+                "display_name": "Microsoft Defender for Cloud for AI",
+                "app_id": "1efb1569-5fd6-4938-8b8d-9f3aa07c658d",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "4c0d5499-75d7-4e7a-9b8b-c36524d24233",
+                "display_name": "NFV Resource Provider",
+                "app_id": "328fd23b-de6e-462c-9433-e207470a5727",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "4c908791-842b-46b3-84fd-17b5e0fecaca",
+                "display_name": "Azure DNS Managed Resolver",
+                "app_id": "b4ca0290-4e73-4e31-ade0-c82ecfaabf6a",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "5028f9be-b568-4ff3-ae9c-e22ceb99b7ed",
+                "display_name": "MS-PIM",
+                "app_id": "01fc33a7-78ba-4d2f-a4b7-768e336e890e",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "50bdc3f3-ebee-4d29-9c6c-a89d2cfe08aa",
+                "display_name": "Managed Service Identity",
+                "app_id": "ef5d5c69-a5df-46bb-acaf-426f161a21a2",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "51328872-56dc-4c0d-88c9-471715b82f03",
+                "display_name": "Azure DNS",
+                "app_id": "19947cfd-0303-466c-ac3c-fcc19a7a1570",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "565a9b1f-2350-42f9-aee0-084f8cc16fbb",
+                "display_name": "Microsoft Commerce Accounts Service",
+                "app_id": "bf9fc203-c1ff-4fd4-878b-323642e462ec",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "571528fc-cc78-4e9d-a398-97cf56b7a96a",
+                "display_name": "Microsoft Azure Vnet Verifier",
+                "app_id": "6e02f8e9-db9b-4eb5-aa5a-7c8968375f68",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "57f95479-b403-45de-aff2-3651bba771a3",
+                "display_name": "Microsoft Defender for Cloud MultiCloud Onboarding",
+                "app_id": "81172f0f-5d81-47c7-96f6-49c58b60d192",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "58900421-dae9-4332-b585-4f69f1c66ef7",
+                "display_name": "AAD Request Verification Service - PROD",
+                "app_id": "c728155f-7b2a-4502-a08b-b8af9b269319",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "58abdfcc-315d-4a70-9f51-f17c7e41a399",
+                "display_name": "AzureSupportCenter",
+                "app_id": "37182072-3c9c-4f6a-a4b3-b3f91cacffce",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "5c0454a8-4b99-47e1-b68e-3a1167ec4dc6",
+                "display_name": "Compute Usage Provider",
+                "app_id": "a303894e-f1d8-4a37-bf10-67aa654a0596",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "5cbf2270-511f-496b-b356-b1eddbfc41ce",
+                "display_name": "Narada Notification Service",
+                "app_id": "51b5e278-ed7e-42c6-8787-7ff93e92f577",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "5d6f897f-0a39-48b8-ad10-44992ed61e0f",
+                "display_name": "Azure Key Vault Managed HSM Key Governance Service",
+                "app_id": "a1b76039-a76c-499f-a2dd-846b4cc32627",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "60f66946-33f9-4870-b7e0-76d21643cc06",
+                "display_name": "CPIM Service",
+                "app_id": "bb2a2e3a-c5e7-4f0a-88e0-8e01fd3fc1f4",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "62cf14ee-14c1-4ba9-8ae1-3e5b749818ce",
+                "display_name": "Azure Files",
+                "app_id": "69dda2a9-33ca-4ed0-83fb-a9b7b8973ff4",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "62fca47e-dedc-44c5-b9a5-891c05d3081c",
+                "display_name": "Defender for Cloud - Private Link Resource Provider",
+                "app_id": "d0ef82bb-244a-4458-9eb4-24a9f093f2c4",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "64c1ed18-4f90-483e-9bb9-9d2a01e24c7c",
+                "display_name": "Azure Credential Configuration Endpoint Service",
+                "app_id": "ea890292-c8c8-4433-b5ea-b09d0668e1a6",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "67963a65-040e-448d-9020-82c2b59b5636",
+                "display_name": "Office 365 Configure",
+                "app_id": "aa9ecb1e-fd53-4aaa-a8fe-7a54de2c1334",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "6a53f054-581e-4435-a76f-7f23def3f0d1",
+                "display_name": "Azure AD Notification",
+                "app_id": "fc03f97a-9db0-4627-a216-ec98ce54e018",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "6d598ca7-7591-4843-aa23-8f9cd6fb310e",
+                "display_name": "Microsoft Azure App Service",
+                "app_id": "abfa0a7c-a6b6-4736-8310-5855508787cd",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "6da52f33-4d32-44c7-9efb-5d2309d2087a",
+                "display_name": "Microsoft Azure Signup Portal",
+                "app_id": "8e0e8db5-b713-4e91-98e6-470fed0aa4c2",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "7221250b-b15f-4219-9b94-d9f004278395",
+                "display_name": "Microsoft Azure Network Copilot",
+                "app_id": "40c49ff3-c6ae-436d-b28e-b8e268841980",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "734bc213-fefb-4575-b87d-f93f4df3dc33",
+                "display_name": "ptm-cp-prod",
+                "app_id": "1387301c-59b7-4204-84b8-1b7559500626",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "76cca88e-f5d4-466b-97ee-3d3b6ce4f22c",
+                "display_name": "Microsoft Policy Insights Provider Data Plane",
+                "app_id": "8cae6e77-e04e-42ce-b5cb-50d82bce26b1",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "770dbe68-fb95-4e0b-a71d-1f15e6ac4e5e",
+                "display_name": "AADReporting",
+                "app_id": "1b912ec3-a9dd-4c4d-a53e-76aa7adb28d7",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "7b3554be-3581-43ce-a566-ea8bdf5734c3",
+                "display_name": "AzureDnsFrontendApp",
+                "app_id": "a0be0c72-870e-46f0-9c49-c98333a996f7",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "7b74c0d9-be2d-4aef-ad08-36947345ed19",
+                "display_name": "RPSaaS Meta RP",
+                "app_id": "f77c2a8f-8a0a-4776-8e0a-bcb2549610ca",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "7edd3750-af74-403a-a831-8dc986df5ecf",
+                "display_name": "Azure Storage Actions Resource Provider Service",
+                "app_id": "7d3471e1-ec8b-4655-92f3-bb331362b5ae",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "82bef777-436f-412d-bfe8-988b7342405a",
+                "display_name": "Azure Regional Service Manager",
+                "app_id": "5e5e43d4-54da-4211-86a4-c6e7f3715801",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "8daed524-e191-4fd2-8e25-d08b26cc5f44",
+                "display_name": "Windows Azure Security Resource Provider",
+                "app_id": "8edd93e1-2103-40b4-bd70-6e34e586362d",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "8e476523-f88d-400a-9ade-02d0abfad51a",
+                "display_name": "Dunloe Dataplane Service",
+                "app_id": "89e7f920-bdc3-4e71-99e5-30d84827b610",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "8f82baa5-91c2-4e29-b44a-f1cc147230b1",
+                "display_name": "Azure RBAC Data Plane",
+                "app_id": "5861f7fb-5582-4c1a-83c0-fc5ffdb531a6",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "91ffeb5c-f03d-4169-b574-aefdfa08e2a2",
+                "display_name": "MDC Data Sensitivity",
+                "app_id": "bd6d9218-235b-4abd-b3be-9ff157dcf36c",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "92065531-2478-40b1-818e-6693258fe2b1",
+                "display_name": "Office365 Shell SS-Server Default",
+                "app_id": "6872b314-67ab-4a16-98e7-a663b0f772c3",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "93f145ac-3fab-4481-a7d4-c8ca4f67ce58",
+                "display_name": "WindowsDefenderATP",
+                "app_id": "fc780465-2017-40d4-a0c5-307022471b92",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "94dd176b-85bc-4ed1-adbd-d5e654a5e43a",
+                "display_name": "Azure Resource Graph",
+                "app_id": "509e4652-da8d-478d-a730-e9d4a1996ca4",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "996eaaab-70b7-4a0b-a44a-46906f5cff0a",
+                "display_name": "Azure Managed HSM RP",
+                "app_id": "1341df96-0b28-43da-ba24-7a6ce39be816",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "9b96e13b-a9ef-49cb-bdcc-b240371b8812",
+                "display_name": "o365.servicecommunications.microsoft.com",
+                "app_id": "cb1bda4c-1213-4e8b-911a-0a8c83c5d3b7",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "9c6a0961-0bd1-4b94-a04a-9d57e5168b50",
+                "display_name": "Policy Administration Service",
+                "app_id": "0469d4cd-df37-4d93-8a61-f8c75b809164",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "9f448632-c675-4a43-bfb5-112f53558fd6",
+                "display_name": "ResourceHealthRP",
+                "app_id": "8bdebf23-c0fe-4187-a378-717ad86f6a53",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "9fd73b26-8a1c-4b00-8e3f-be33b6b5668e",
+                "display_name": "Microsoft Defender for Cloud Scanner Resource Provider",
+                "app_id": "e0ccf59d-5a20-4a87-a122-f42842cdb86a",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "a593a1b0-d049-414e-8d12-e7710e98abc8",
+                "display_name": "Microsoft_Azure_Support",
+                "app_id": "959678cf-d004-4c22-82a6-d2ce549a58b8",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "aa3607c5-1e78-4d07-b9b2-99028eaca427",
+                "display_name": "Azure Bastion",
+                "app_id": "79d7fb34-4bef-4417-8184-ff713af7a679",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "aaeb0658-3d17-4620-94f6-cfffeb2cea52",
+                "display_name": "Request Approvals Read Platform",
+                "app_id": "d8c767ef-3e9a-48c4-aef9-562696539b39",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "ac83b9b6-a774-44ba-bb29-ecc68f156b6b",
+                "display_name": "NetworkTrafficAnalyticsService",
+                "app_id": "1e3e4475-288f-4018-a376-df66fd7fac5f",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "aeda6c92-622e-4e1b-818e-d5ce0d3c0e84",
+                "display_name": "Microsoft Defender for Cloud Servers Scanner Resource Provider",
+                "app_id": "0c7668b5-3260-4ad0-9f53-34ed54fa19b2",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "b0e79b48-f8cf-4800-b14e-adf560e602b9",
+                "display_name": "TI-1P-APP",
+                "app_id": "b6a1fec6-8029-456b-81ed-de7754615362",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "b109c73c-2147-46a7-a63d-759b966b4570",
+                "display_name": "OMSAuthorizationServicePROD",
+                "app_id": "50d8616b-fd4f-4fac-a1c9-a6a9440d7fe0",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "b789d93a-a7ed-4c94-bb70-56966331d73a",
+                "display_name": "Azure Resource Manager",
+                "app_id": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "ba6e8467-8c96-4847-b7ac-b3977d4885e4",
+                "display_name": "Microsoft Defender For Cloud Discovery",
+                "app_id": "ee45196f-bd15-4010-9a66-c8497a97a873",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "bab6dd03-9205-4a74-854b-55b49679165a",
+                "display_name": "Azure Context Cache RP Prod Identity",
+                "app_id": "89b757f8-1e01-4f41-8c72-75e191b11b8c",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "bb01d387-f7ce-4072-944e-2426912fb5d6",
+                "display_name": "security-cloud-stack-app-01",
+                "app_id": "ac22e07f-ed9d-4496-96b2-ae840c0213a6",
+                "account_enabled": true,
+                "service_principal_type": "ManagedIdentity",
+                "app_owner_organization_id": null
+            },
+            {
+                "id": "bcee9a55-400d-4eb8-9fcf-08cc32609faf",
+                "display_name": "Microsoft App Access Panel",
+                "app_id": "0000000c-0000-0000-c000-000000000000",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "be8a206c-7417-46ef-92e0-c4e6eaa48295",
+                "display_name": "Quota Service Core - ARM Client",
+                "app_id": "3cf468b4-12a0-43cd-aa3f-3f39210d14cf",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "be9f022a-e717-46ed-b806-dee440fee505",
+                "display_name": "Microsoft Defender for Cloud CIEM",
+                "app_id": "a70c8393-7c0c-4c1e-916a-811bd476ee11",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "c25d94ad-4fbf-424c-a96b-f5a7b417735b",
+                "display_name": "Windows Azure Active Directory",
+                "app_id": "00000002-0000-0000-c000-000000000000",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "c51a8ac1-21e4-472a-9f10-96af3dc168a4",
+                "display_name": "AzureVirtualNetworkManager",
+                "app_id": "6d057c82-a784-47ae-8d12-ca7b38cf06b4",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "c56e86c7-8e5d-407d-bc20-5753b8932877",
+                "display_name": "Compute Artifacts Publishing Service",
+                "app_id": "a8b6bf88-1d1a-4626-b040-9a729ea93c65",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "cbf85174-2e88-405d-91c5-090445be138c",
+                "display_name": "Microsoft Azure IPAM",
+                "app_id": "60b2e7d5-a27f-426d-a6b1-acced0846fdf",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "cda72a03-e150-43f1-89b1-3b41f15b9e3a",
+                "display_name": "Azure Compute",
+                "app_id": "579d9c9d-4c83-4efc-8124-7eba65ed3356",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "cf1e4062-fe1a-4a2b-a312-55e67d3d08fe",
+                "display_name": "Compute Image Registry",
+                "app_id": "51b6191a-b045-44cf-8277-ee37c9fb5a06",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "d5326db6-cd47-4a93-8d4d-84327d20cf6d",
+                "display_name": "Microsoft Graph",
+                "app_id": "00000003-0000-0000-c000-000000000000",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "d69f39e1-f259-4317-a84e-3c34e6c89cb7",
+                "display_name": "IAM Supportability",
+                "app_id": "a57aca87-cbc0-4f3c-8b9e-dc095fdc8978",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "e0e9f3ef-95c0-4b43-8553-fda90981c0e2",
+                "display_name": "CABProvisioning",
+                "app_id": "5da7367f-09c8-493e-8fd4-638089cddec3",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "e7d9c195-03f8-41a2-b07c-56fde8ecce37",
+                "display_name": "Microsoft Defender For Cloud",
+                "app_id": "6b5b3617-ba00-46f6-8770-1849282a189a",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "e7fb1810-3fa4-4ab8-aeec-132a3c2c8afc",
+                "display_name": "OneCert-AzureDns-Prod",
+                "app_id": "3471ca03-f150-4759-88e6-0bfc97daf723",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "ea1cdf36-2077-46bc-bca8-29b39cb331b9",
+                "display_name": "Azure Management Groups",
+                "app_id": "f2c304cf-8e7e-4c3f-8164-16299ad9d272",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "ef3f414c-6a6f-4a1a-8016-d31357aaf81b",
+                "display_name": "SubscriptionRP",
+                "app_id": "e3335adb-5ca0-40dc-b8d3-bedc094e523b",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "f4b9630e-ea59-43d1-9165-309ecf62523d",
+                "display_name": "ScheduledActions",
+                "app_id": "45164d96-544d-4a64-a1ca-3fb4bbb6eb18",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "f88ad121-d899-4681-a108-d08c5b2a8364",
+                "display_name": "Azure Traffic Manager and DNS",
+                "app_id": "2cf9eb86-36b5-49dc-86ae-9a63135dfa8c",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "fbb44b5f-1923-4e45-9059-a89af7281b70",
+                "display_name": "Microsoft Defender for Cloud Pricing Resource Provider",
+                "app_id": "cbff9545-769a-4b41-b76e-fbb069e8727e",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "fbf8f5d7-bb13-4293-a146-348825aee6a1",
+                "display_name": "Storage Resource Provider",
+                "app_id": "a6aa9161-5291-40bb-8c5c-923b567bee3b",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "fdc4f104-62ad-44d0-9126-0d6aeacf2ba1",
+                "display_name": "Azure Key Vault",
+                "app_id": "cfa8b339-82a2-471a-a3c9-0fc0be7a4093",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            },
+            {
+                "id": "ff806279-e93e-4cc3-a367-238d68a171a9",
+                "display_name": "Azure Windows VM Sign-In",
+                "app_id": "372140e0-b3b7-4226-8ef9-d57986796201",
+                "account_enabled": true,
+                "service_principal_type": "Application",
+                "app_owner_organization_id": "f8cdef31-a31e-4b4a-93e4-5f571e91255a"
+            }
+        ],
+        "privileged_roles": [
+            {
+                "id": "416d635f-a323-459d-8979-aa2c1dff888d",
+                "display_name": "SharePoint Administrator",
+                "description": "Can manage all aspects of the SharePoint service.",
+                "members": [
+                    {
+                        "id": "a48531e6-9e29-4759-a341-6384aa5c26d4",
+                        "display_name": "SaaS Admin",
+                        "user_principal_name": "saas-admin@praveenraja1815gmail.onmicrosoft.com",
+                        "type": "#microsoft.graph.user",
+                        "account_enabled": null
+                    }
+                ]
+            },
+            {
+                "id": "a161c8d0-686b-4352-8f68-c9dfaff9cd6f",
+                "display_name": "Global Administrator",
+                "description": "Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.",
+                "members": [
+                    {
+                        "id": "fc6c7c41-492f-4e70-a594-b797432fa644",
+                        "display_name": "Praveen Vasamsetti",
+                        "user_principal_name": "praveenraja1815_gmail.com#EXT#@praveenraja1815gmail.onmicrosoft.com",
+                        "type": "#microsoft.graph.user",
+                        "account_enabled": null
+                    }
+                ]
+            }
+        ],
+        "mfa_registration": [],
+        "collection_status": {
+            "users": true,
+            "service_principals": true,
+            "directory_roles": true,
+            "directory_role_members": true,
+            "mfa_registration": false
+        },
+        "collection_errors": {
+            "users": null,
+            "service_principals": null,
+            "directory_roles": null,
+            "directory_role_members": [],
+            "mfa_registration": "HTTP 403"
+        }
+    },
+    "key_vaults": [
+        {
+            "name": "kvseccloud01",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01",
+            "type": "Microsoft.KeyVault/vaults"
+        }
+    ],
+    "secrets": [
+        {
+            "name": "app-secret",
+            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.KeyVault/vaults/kvseccloud01/secrets/app-secret"
+        }
+    ],
+    "network": {
+        "vnets": [
+            {
+                "name": "vnet-cloud-stack",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "address_space": [
+                    "10.0.0.0/16"
+                ],
+                "subnets": [
+                    {
+                        "name": "management-subnet",
+                        "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/management-subnet",
+                        "address_prefixes": [
+                            "10.0.2.0/24"
+                        ],
+                        "nsg_id": null,
+                        "private_endpoint_network_policies": "Disabled"
+                    },
+                    {
+                        "name": "web-subnet",
+                        "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet",
+                        "address_prefixes": [
+                            "10.0.1.0/24"
+                        ],
+                        "nsg_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+                        "private_endpoint_network_policies": "Disabled"
+                    }
+                ]
+            }
+        ],
+        "nsgs": [
+            {
+                "name": "nsg-web-security",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "subnet_ids": [
+                    "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
+                ],
+                "rules": [
+                    {
+                        "name": "Allow-HTTP-Web",
+                        "priority": 100,
+                        "direction": "Inbound",
+                        "access": "Allow",
+                        "protocol": "TCP",
+                        "source": "*",
+                        "source_port": "*",
+                        "destination": "*",
+                        "destination_port": "80"
+                    },
+                    {
+                        "name": "Allow-SSH-MyIp",
+                        "priority": 110,
+                        "direction": "Inbound",
+                        "access": "Allow",
+                        "protocol": "TCP",
+                        "source": "122.183.37.185",
+                        "source_port": "*",
+                        "destination": "*",
+                        "destination_port": "22"
+                    }
+                ]
+            }
+        ],
+        "public_ips": [
+            {
+                "name": "vm-web-01-ip",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip",
+                "resource_group": null,
+                "ip_address": "172.197.220.81",
+                "allocation_method": "Static",
+                "sku": "Standard",
+                "ip_configuration_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267/ipConfigurations/ipconfig1"
+            }
+        ],
+        "network_interfaces": [
+            {
+                "name": "vm-web-01267",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "network_security_group_id": null,
+                "ip_configurations": [
+                    {
+                        "name": "ipconfig1",
+                        "private_ip": "10.0.1.4",
+                        "private_ip_allocation": "Dynamic",
+                        "subnet_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet",
+                        "public_ip_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip"
+                    }
+                ],
+                "virtual_machine_id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Compute/virtualMachines/vm-web-01"
+            }
+        ],
+        "virtual_machines": [
+            {
+                "name": "vm-web-01",
+                "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Compute/virtualMachines/vm-web-01",
+                "resource_group": null,
+                "location": "malaysiawest",
+                "vm_size": "Standard_B2ats_v2",
+                "os_type": "Linux",
+                "nic_ids": [
+                    "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267"
+                ],
+                "security_type": "TrustedLaunch",
+                "secure_boot": true,
+                "v_tpm": true,
+                "password_authentication_disabled": true
+            }
+        ],
+        "relationships": [
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267",
+                "relationship": "connected_to_subnet",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack/subnets/web-subnet",
+                "relationship": "inside_vnet",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/virtualNetworks/vnet-cloud-stack"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/publicIPAddresses/vm-web-01-ip",
+                "relationship": "attached_to_nic",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Compute/virtualMachines/vm-web-01",
+                "relationship": "uses_nic",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkInterfaces/vm-web-01267"
+            },
+            {
+                "source": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/rg-security-cloud-stack/providers/Microsoft.Network/networkSecurityGroups/nsg-web-security",
+                "relationship": "protects_subnet",
+                "target": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
+            }
+        ]
+    }
+}
