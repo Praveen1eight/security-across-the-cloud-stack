@@ -1,0 +1,87 @@
+// ============================================================
+// SECURITY ACROSS CLOUD STACK
+// MONITORING & LOGGING QUERIES
+// ============================================================
+
+
+// ============================================================
+// 1. Recent Azure Activity
+// ============================================================
+
+AzureActivity
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 2. Administrative Changes
+// ============================================================
+
+AzureActivity
+| where CategoryValue == "Administrative"
+| project TimeGenerated, Caller, OperationNameValue, ActivityStatusValue, ResourceGroup, ResourceId
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 3. Failed Azure Operations
+// ============================================================
+
+AzureActivity
+| where ActivityStatusValue == "Failure"
+| project TimeGenerated, Caller, OperationNameValue, ActivityStatusValue, ResourceGroup, ResourceId
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 4. Security-Related Activity
+// ============================================================
+
+AzureActivity
+| where CategoryValue == "Security"
+| project TimeGenerated, Caller, OperationNameValue, ActivityStatusValue, ResourceGroup, ResourceId
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 5. Key Vault Activity
+// ============================================================
+
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 6. App Service Activity
+// ============================================================
+
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.WEB"
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 7. Authentication-Related Events
+// ============================================================
+
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.WEB"
+| where Category contains "Authentication"
+| sort by TimeGenerated desc
+| take 50
+
+
+// ============================================================
+// 8. Events in the Last 24 Hours
+// ============================================================
+
+AzureActivity
+| where TimeGenerated >= ago(24h)
+| project TimeGenerated, CategoryValue, Caller, OperationNameValue, ActivityStatusValue, ResourceGroup
+| sort by TimeGenerated desc

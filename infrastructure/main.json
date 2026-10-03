@@ -1,0 +1,381 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.47.16.16243",
+      "templateHash": "3852311900077381967"
+    }
+  },
+  "parameters": {
+    "sshPublicKey": {
+      "type": "string",
+      "metadata": {
+        "description": "SSH public key used for the Linux VM."
+      }
+    },
+    "adminUsername": {
+      "type": "string",
+      "defaultValue": "azureadmin",
+      "metadata": {
+        "description": "Administrator username for the Linux VM."
+      }
+    },
+    "adminIpAddress": {
+      "type": "string",
+      "defaultValue": "122.183.37.185",
+      "metadata": {
+        "description": "IP address allowed to SSH to the VM."
+      }
+    },
+    "appServiceAllowedIp": {
+      "type": "string",
+      "defaultValue": "157.51.109.60/32",
+      "metadata": {
+        "description": "IP address allowed to access the App Service."
+      }
+    },
+    "projectTag": {
+      "type": "string",
+      "defaultValue": "SecurityAcrossCloudStack",
+      "metadata": {
+        "description": "Common project tags."
+      }
+    }
+  },
+  "variables": {
+    "location": "malaysiawest",
+    "vnetName": "vnet-cloud-stack",
+    "nsgName": "nsg-web-security",
+    "subnetName": "web-subnet",
+    "publicIpName": "vm-web-01-ip",
+    "nicName": "vm-web-01267",
+    "vmName": "vm-web-01",
+    "appServicePlanName": "ASP-rgsecuritycloudstack-ab57",
+    "appServiceName": "security-cloud-stack-app-01",
+    "keyVaultName": "kvseccloud01",
+    "tags": {
+      "Project": "[parameters('projectTag')]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2024-05-01",
+      "name": "[variables('nsgName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "Allow-HTTP-Web",
+            "properties": {
+              "priority": 100,
+              "access": "Allow",
+              "direction": "Inbound",
+              "protocol": "Tcp",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "80"
+            }
+          },
+          {
+            "name": "Allow-SSH-MyIp",
+            "properties": {
+              "priority": 110,
+              "access": "Allow",
+              "direction": "Inbound",
+              "protocol": "Tcp",
+              "sourceAddressPrefix": "[parameters('adminIpAddress')]",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "22"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2024-05-01",
+      "name": "[variables('vnetName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "management-subnet",
+            "properties": {
+              "addressPrefixes": [
+                "10.0.2.0/24"
+              ],
+              "defaultOutboundAccess": false
+            }
+          },
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefixes": [
+                "10.0.1.0/24"
+              ],
+              "defaultOutboundAccess": false,
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
+              }
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2024-05-01",
+      "name": "[variables('publicIpName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "zones": [
+        "2"
+      ],
+      "properties": {
+        "publicIPAllocationMethod": "Static"
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2024-05-01",
+      "name": "[variables('nicName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpName'))]"
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('subnetName'))]"
+              }
+            }
+          }
+        ]
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2024-07-01",
+      "name": "[variables('vmName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "zones": [
+        "2"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_B2ats_v2"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "canonical",
+            "offer": "ubuntu-24_04-lts",
+            "sku": "server",
+            "version": "latest"
+          },
+          "osDisk": {
+            "createOption": "FromImage",
+            "managedDisk": {
+              "storageAccountType": "Standard_LRS"
+            }
+          }
+        },
+        "osProfile": {
+          "computerName": "[variables('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "/home/azureadmin/.ssh/authorized_keys",
+                  "keyData": "[parameters('sshPublicKey')]"
+                }
+              ]
+            }
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]",
+              "properties": {
+                "primary": true
+              }
+            }
+          ]
+        },
+        "securityProfile": {
+          "securityType": "TrustedLaunch",
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          }
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2024-04-01",
+      "name": "[variables('appServicePlanName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "sku": {
+        "name": "F1",
+        "tier": "Free"
+      },
+      "properties": {
+        "reserved": true
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2024-04-01",
+      "name": "[variables('appServiceName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "kind": "app,linux",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
+        "httpsOnly": true,
+        "publicNetworkAccess": "Enabled",
+        "siteConfig": {
+          "linuxFxVersion": "PYTHON|3.12",
+          "ftpsState": "FtpsOnly",
+          "minTlsVersion": "1.2",
+          "scmMinTlsVersion": "1.2",
+          "remoteDebuggingEnabled": false,
+          "ipSecurityRestrictions": [
+            {
+              "name": "Allow-My-IP",
+              "priority": 100,
+              "action": "Allow",
+              "ipAddress": "[parameters('appServiceAllowedIp')]"
+            },
+            {
+              "name": "Deny all",
+              "priority": 2147483647,
+              "action": "Deny",
+              "ipAddress": "Any",
+              "description": "Deny all access"
+            }
+          ],
+          "ipSecurityRestrictionsDefaultAction": "Deny",
+          "scmIpSecurityRestrictions": [
+            {
+              "name": "Allow-My-IP-SCM",
+              "priority": 100,
+              "action": "Allow",
+              "ipAddress": "[parameters('appServiceAllowedIp')]"
+            },
+            {
+              "name": "Deny all",
+              "priority": 2147483647,
+              "action": "Deny",
+              "ipAddress": "Any",
+              "description": "Deny all access"
+            }
+          ],
+          "scmIpSecurityRestrictionsDefaultAction": "Deny",
+          "scmIpSecurityRestrictionsUseMain": false
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2024-04-01-preview",
+      "name": "[variables('keyVaultName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "properties": {
+        "tenantId": "[subscription().tenantId]",
+        "sku": {
+          "family": "A",
+          "name": "standard"
+        },
+        "enableRbacAuthorization": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90,
+        "publicNetworkAccess": "Enabled",
+        "networkAcls": {
+          "bypass": "None",
+          "defaultAction": "Allow"
+        },
+        "accessPolicies": []
+      }
+    },
+    {
+      "type": "Microsoft.Authorization/locks",
+      "apiVersion": "2020-05-01",
+      "name": "SecurityLab-ResourceGroup-Lock",
+      "properties": {
+        "level": "CanNotDelete"
+      }
+    },
+    {
+      "type": "Microsoft.Web/sites/config",
+      "apiVersion": "2024-04-01",
+      "name": "[format('{0}/{1}', variables('appServiceName'), 'authsettingsV2')]",
+      "properties": {
+        "globalValidation": {
+          "redirectToProvider": "aad",
+          "unauthenticatedClientAction": "RedirectToLoginPage"
+        },
+        "login": {
+          "preserveUrlFragmentsForLogins": false,
+          "routes": {
+            "logoutEndpoint": "/.auth/logout"
+          }
+        },
+        "platform": {
+          "enabled": true,
+          "runtimeVersion": "~1"
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', variables('appServiceName'))]"
+      ]
+    }
+  ]
+}
