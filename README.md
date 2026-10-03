@@ -1,65 +1,110 @@
-# security-across-the-cloud-stack
+@"
 # Security Across the Cloud Stack
 
 > Securing IaaS, PaaS, SaaS, and Identity on Microsoft Azure
 
 ---
 
-## 📖 Overview
+## Overview
 
-Security Across the Cloud Stack is a hands-on cloud security project built on Microsoft Azure.
+Security Across the Cloud Stack is a hands-on Microsoft Azure cloud security project demonstrating security across IaaS, PaaS, SaaS, and Microsoft Entra ID using Microsoft's Shared Responsibility Model.
 
-The purpose of this project is to demonstrate how security responsibilities change across different cloud service models while implementing practical security controls following Microsoft's Shared Responsibility Model.
-
-The project covers:
-
-- ☁️ Infrastructure as a Service (IaaS)
-- ⚙️ Platform as a Service (PaaS)
-- 📦 Software as a Service (SaaS)
-- 🔐 Microsoft Entra ID (Identity)
-- 🛡️ Governance & Compliance
-- 📊 Monitoring & Logging
+The project combines Azure security controls with custom security analysis, risk scoring, attack-path detection, governance, monitoring, and Infrastructure as Code.
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
-- Build secure Azure infrastructure
-- Implement Identity and Access Management
-- Secure workloads across IaaS, PaaS and SaaS
-- Apply Azure security best practices
-- Demonstrate governance and monitoring
-- Document every implementation step
-
----
-
-## 🚧 Project Status
-
-🟡 In Progress
-
-Current Phase:
-
-- [ ] Phase 0 – Project Planning
-- [ ] Phase 1 – Azure Environment Setup
-- [ ] Phase 2 – Networking
-- [ ] Phase 3 – Microsoft Entra ID
-- [ ] Phase 4 – IaaS Security
-- [ ] Phase 5 – PaaS Security
-- [ ] Phase 6 – SaaS Security
-- [ ] Phase 7 – Governance
-- [ ] Phase 8 – Defender for Cloud
-- [ ] Phase 9 – Infrastructure as Code
-- [ ] Phase 10 – Monitoring
-- [ ] Phase 11 – Documentation
+- Build and secure Azure infrastructure
+- Demonstrate Microsoft Entra ID and RBAC
+- Secure workloads across IaaS, PaaS, and SaaS
+- Analyze cloud security relationships and attack paths
+- Identify sensitive resources and security risks
+- Apply security remediation and re-validation
+- Implement Azure governance controls
+- Assess security posture using Microsoft Defender for Cloud
+- Implement centralized monitoring and logging
+- Define infrastructure using Azure Bicep
+- Document the complete security architecture
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
-Architecture diagram coming soon.
+The project covers four major security areas:
+
+### IaaS
+
+- Azure Virtual Network
+- Subnets
+- Network Security Group
+- Ubuntu Linux Virtual Machine
+- SSH access restrictions
+- Trusted Launch
+- Secure Boot
+- vTPM
+- Network security analysis
+
+### PaaS
+
+- Azure App Service
+- Managed Identity
+- Microsoft Entra authentication
+- HTTPS-only access
+- TLS 1.2
+- FTPS-only deployment
+- IP access restrictions
+- SCM endpoint restrictions
+- Azure Key Vault integration
+
+### SaaS
+
+Microsoft Entra / SaaS identity analysis covering:
+
+- User accounts
+- Guest users
+- Disabled users
+- Privileged directory roles
+- Service principals
+- MFA registration information
+
+### Identity
+
+- Azure RBAC
+- Microsoft Entra ID
+- Managed identities
+- Service principals
+- Privileged access analysis
 
 ---
 
-## 📜 License
+## Security Analysis Engine
 
-MIT License
+The project includes a custom security-analysis workflow:
+
+```text
+Azure Environment
+       |
+       v
+Resource Collection
+       |
+       v
+Security Analysis
+       |
+       v
+Security Graph
+       |
+       v
+Attack Path Detection
+       |
+       v
+Risk Scoring
+       |
+       v
+Remediation
+       |
+       v
+Re-validation
+       |
+       v
+Cross-Model Comparison
