@@ -1,0 +1,62 @@
+{
+    "service_model": "SaaS",
+    "platform": "Microsoft 365 / Microsoft Entra",
+    "tenant_id": "5f859e40-73a7-46b8-8484-6bf437063399",
+    "risk_score": 30,
+    "risk_rating": "MEDIUM",
+    "total_findings": 5,
+    "finding_counts": {
+        "CRITICAL": 0,
+        "HIGH": 1,
+        "MEDIUM": 1,
+        "LOW": 0,
+        "INFO": 3
+    },
+    "inventory_summary": {
+        "users": 3,
+        "guests": 0,
+        "disabled_users": 0,
+        "service_principals": 110,
+        "privileged_roles": 2,
+        "mfa_records": 0
+    },
+    "collection_status": {
+        "users": true,
+        "service_principals": true,
+        "directory_roles": true,
+        "directory_role_members": true,
+        "mfa_registration": false
+    },
+    "findings": [
+        {
+            "severity": "INFO",
+            "title": "No guest accounts detected",
+            "description": "No Microsoft Entra guest accounts were present in the collected inventory.",
+            "recommendation": "Continue reviewing external identities as the tenant changes."
+        },
+        {
+            "severity": "HIGH",
+            "title": "Global Administrator assignments detected",
+            "description": "1 account(s) were found in the Global Administrator role.",
+            "recommendation": "Minimize standing Global Administrator access. Use least privilege and privileged-access controls where available."
+        },
+        {
+            "severity": "INFO",
+            "title": "Privileged role assignments detected",
+            "description": "2 membership record(s) were found across the configured privileged roles.",
+            "recommendation": "Validate each privileged assignment against least-privilege requirements."
+        },
+        {
+            "severity": "INFO",
+            "title": "Service principals inventoried",
+            "description": "110 service principal(s) were collected from Microsoft Entra.",
+            "recommendation": "Review application identities periodically and restrict permissions to the minimum required scope."
+        },
+        {
+            "severity": "MEDIUM",
+            "title": "MFA registration status could not be verified",
+            "description": "The Microsoft Graph authentication-method registration report was unavailable.",
+            "recommendation": "Grant the required reporting permissions and rerun the collector. Do not interpret missing MFA data as MFA being enabled."
+        }
+    ]
+}
