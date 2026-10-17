@@ -1,60 +1,84 @@
 {
-    "model": "IaaS",
-    "scope": "IaaS + Identity",
-    "risk_score": 20,
-    "risk_rating": "LOW",
-    "findings": {
-        "total": 1,
-        "counts": {
-            "CRITICAL": 0,
-            "HIGH": 1,
-            "MEDIUM": 0,
-            "LOW": 0,
-            "INFO": 0
-        },
-        "network_findings": [
-            {
-                "type": "PublicNetworkExposure",
-                "severity": "HIGH",
-                "nsg": "nsg-web-security",
-                "rule": "Allow-HTTP-Web",
-                "source": "*",
-                "protocol": "TCP",
-                "port": 80,
-                "service": "TCP/80",
-                "title": "Publicly exposed TCP/80 service",
-                "exposed_subnets": [
-                    "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourceGroups/RG-SECURITY-CLOUD-STACK/providers/Microsoft.Network/virtualNetworks/VNET-CLOUD-STACK/subnets/WEB-SUBNET"
-                ],
-                "exposed_nics": [],
-                "exposed_vms": []
+    "project": "Security Across Cloud Stack",
+    "summary": {
+        "total_findings": 2,
+        "critical": 2,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+    },
+    "findings": [
+        {
+            "rank": 1,
+            "finding_id": "SCS-001",
+            "severity": "CRITICAL",
+            "risk_score": 90,
+            "risk_factors": [
+                {
+                    "points": 30,
+                    "reason": "Sensitive secret target"
+                },
+                {
+                    "points": 20,
+                    "reason": "Direct secret access"
+                },
+                {
+                    "points": 35,
+                    "reason": "Privileged role: Key Vault Secrets Officer"
+                },
+                {
+                    "points": 5,
+                    "reason": "Direct identity path"
+                }
+            ],
+            "title": "Identity has direct access to a sensitive secret",
+            "entry_point": "Current Azure User",
+            "permission": "Key Vault Secrets Officer",
+            "target": "app-secret",
+            "reason": "The identity 'Current Azure User' has the 'Key Vault Secrets Officer' role, which provides access to the Key Vault containing 'app-secret'.",
+            "impact": "Compromise of this identity could allow an attacker to access sensitive Key Vault data.",
+            "recommendation": "Review the 'Key Vault Secrets Officer' assignment and reduce permissions to the minimum required.",
+            "remediation": {
+                "action": "Review the 'Key Vault Secrets Officer' role assigned to 'Current Azure User' and remove the assignment if access to 'app-secret' is not required.",
+                "least_privilege": "If access is required, replace the role with the least-privileged role that provides only the required operation.",
+                "verification": "Verify that 'Current Azure User' no longer has unnecessary access to 'app-secret'."
             }
-        ]
-    },
-    "inventory": {
-        "resources": 11,
-        "managed_identities": 1,
-        "rbac_assignments": 3,
-        "network_relationships": 5
-    },
-    "graph": {
-        "nodes": 19,
-        "edges": 19
-    },
-    "sensitive_targets": [
-        {
-            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourcegroups/rg-security-cloud-stack/providers/microsoft.keyvault/vaults/kvseccloud01",
-            "name": "kvseccloud01",
-            "type": "Microsoft.KeyVault/vaults"
         },
         {
-            "id": "/subscriptions/158f991b-d057-49dc-9bf0-2249fb1e289c/resourcegroups/rg-security-cloud-stack/providers/microsoft.keyvault/vaults/kvseccloud01/secrets/app-secret",
-            "name": "app-secret",
-            "type": "Secret"
+            "rank": 2,
+            "finding_id": "SCS-002",
+            "severity": "CRITICAL",
+            "risk_score": 90,
+            "risk_factors": [
+                {
+                    "points": 30,
+                    "reason": "Sensitive secret target"
+                },
+                {
+                    "points": 20,
+                    "reason": "Direct secret access"
+                },
+                {
+                    "points": 30,
+                    "reason": "Privileged role: Key Vault Secrets User"
+                },
+                {
+                    "points": 10,
+                    "reason": "Managed identity attack path"
+                }
+            ],
+            "title": "Managed identity can reach a sensitive secret",
+            "entry_point": "security-cloud-stack-app-01",
+            "permission": "Key Vault Secrets User",
+            "target": "app-secret",
+            "reason": "The workload 'security-cloud-stack-app-01' uses a managed identity that is assigned the 'Key Vault Secrets User' role. That role provides access to the Key Vault containing 'app-secret'.",
+            "impact": "If the workload or its managed identity is compromised, an attacker may be able to access the sensitive secret.",
+            "recommendation": "Review whether this workload requires 'Key Vault Secrets User' access. Apply least privilege and remove unnecessary Key Vault permissions.",
+            "remediation": {
+                "action": "Review the 'Key Vault Secrets User' assignment for 'security-cloud-stack-app-01' and remove the role if the workload does not require access to 'app-secret'.",
+                "least_privilege": "If access is required, replace the broad role with the minimum permission needed for the workload.",
+                "verification": "Verify that 'security-cloud-stack-app-01' can no longer reach 'app-secret' through an unnecessary role assignment."
+            }
         }
-    ],
-    "attack_paths": {
-        "count": 0,
-        "paths": []
-    }
+    ]
 }
