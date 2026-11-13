@@ -1,4 +1,4 @@
-@"
+
 # Security Across the Cloud Stack
 
 > Securing IaaS, PaaS, SaaS, and Identity on Microsoft Azure
